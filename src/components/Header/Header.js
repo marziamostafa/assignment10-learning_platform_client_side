@@ -1,16 +1,38 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import Faq from '../Faq/Faq';
+import { Link, NavLink } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
 
 const Header = () => {
     return (
         <div>
+            <Navbar className='mb-2' collapseOnSelect expand="lg" bg="light" variant="light">
+                <Container>
+                    <Navbar.Brand href="#home"><h2>Skills Like Hero</h2></Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="me-auto">
+                            <Nav.Link className={({ isActive }) => isActive ? 'active' : undefined} href="/home"><h4>Home</h4></Nav.Link>
+                            <Nav.Link href="/courses"><h4>Courses</h4></Nav.Link>
+                            <Nav.Link href="/blog"><h4>Blog</h4></Nav.Link>
+                            <Nav.Link href="/faq"><h4>FAQ</h4></Nav.Link>
 
-            <Link to='/courses'>Courses</Link>
-            <Link to='/blog'>Blog</Link>
-            <Link to='/faq'>FAQ</Link>
-            <Button variant="info"><Link to='/login'>Log In</Link></Button>
+                        </Nav>
+                        <Nav>
+                            <Button variant="outline-primary">  <Nav.Link href="/login"><h5>Log In</h5></Nav.Link></Button>
+                            <Nav.Link href="#memes">
+                                Dank memes
+                            </Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+
+
 
         </div>
     );
