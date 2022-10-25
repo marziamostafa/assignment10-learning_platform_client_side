@@ -7,12 +7,12 @@ const Courses = () => {
     return (
         <Container>
             <Row>
-                <Col lg="9">
+                <Col >
                     <CourseOptions></CourseOptions>
                 </Col>
-                <Col lg="3">
+                {/* <Col lg="3">
                     <SideBar></SideBar>
-                </Col>
+                </Col> */}
             </Row>
         </Container>
     );
