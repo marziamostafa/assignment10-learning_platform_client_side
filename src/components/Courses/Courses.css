@@ -1,0 +1,24 @@
+.courses {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+}
+
+@media screen and (max-width: 688px) {
+    .courses {
+        display: flex;
+        flex-direction: column-reverse;
+        margin-right: 0;
+        margin-left: 2rem;
+        text-align: center;
+
+
+    }
+
+    .course {
+        width: auto;
+        align-content: center;
+        margin-right: 0;
+        padding-right: 0;
+    }
+}

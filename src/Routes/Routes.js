@@ -1,6 +1,7 @@
 import { createBrowserRouter, Link } from "react-router-dom";
 import Blog from "../components/Blog/Blog";
 import Course from "../components/Course/Course";
+import CourseDetails from "../components/CourseDetails/CourseDetails";
 import CourseOptions from "../components/CourseOptions/CourseOptions";
 import Courses from "../components/Courses/Courses";
 import Error from "../components/Error/Error";
@@ -39,8 +40,13 @@ export const routes = createBrowserRouter([
                 element: <Login></Login>
             },
             {
-                path: '/courseoptions/:id',
-                element: <CourseOptions></CourseOptions>
+                path: '/coursedetails/:id',
+
+                loader: async ({ params }) => {
+                    console.log(params.id)
+                    return fetch(`https://b610-lerning-platform-server-side-marziamostafa-marziamostafa.vercel.app/courses-categories/${params.id}`)
+                },
+                element: <CourseDetails></CourseDetails>,
             },
         ]
     },
