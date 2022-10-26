@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -9,10 +9,20 @@ import logo from '../../assets/logo.png'
 
 import './Header.css'
 import { AuthContext } from '../../contexts/Authprovider/Authprovider';
+import { FaUser } from 'react-icons/fa';
 
 
 const Header = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => {
+                console.error(error);
+            })
+    }
+
     return (
         <div >
             <Navbar className='mb-2' collapseOnSelect expand="lg" bg="light" variant="light">
@@ -35,10 +45,39 @@ const Header = () => {
 
                         </Nav>
                         <Nav>
-                            <Button variant="outline-primary" className='btn-sm p-0'>  <Nav.Link href="/login"><h5 className='p-0 m-0'>Log In</h5></Nav.Link></Button>
-                            <Nav.Link href="#memes">
-                                {user}
+
+                            <Nav.Link href="#Image" className=''>
+                                {user?.photoURL ?
+                                    <Image style={{ height: '40px' }} roundedCircle src={user?.photoURL} ></Image>
+                                    :
+                                    <FaUser className='mt-3'></FaUser>
+                                }
                             </Nav.Link>
+
+                            <Nav.Link href="#memes">
+                                {
+                                    user?.uid ?
+                                        <>
+                                            <span className='p-0 m-0'>
+                                                {user?.displayName}
+                                            </span>
+                                            {/* <h6 className='p-0 m-0'>
+                                              
+                                            </h6> */}
+
+                                            <Button onClick={handleLogOut} variant="outline-secondary ms-1" className=''> <h5 className=''>Log Out</h5></Button>
+
+                                        </>
+
+                                        :
+                                        <>
+                                            <Link to='/emailpasslogin'><Button variant="outline-secondary ms-1" className=''> <h5 className=''>Log In</h5></Button></Link>
+                                        </>
+                                }
+
+                            </Nav.Link>
+                            {/* 
+                            <Button variant="outline-primary ms-1" className='btn-sm p-0'>  <Nav.Link href="/login"><h5 className='p-0 m-0'>Log In</h5></Nav.Link></Button> */}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

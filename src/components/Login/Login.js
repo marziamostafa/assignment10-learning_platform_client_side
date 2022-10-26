@@ -11,14 +11,14 @@ import { GoogleAuthProvider } from 'firebase/auth';
 const Login = () => {
 
     const { providerLogin } = useContext(AuthContext);
-    const googleProvider = new GoogleAuthProvider()
+    const googleProvider = new GoogleAuthProvider();
 
     const handleGoogleSignIn = () => {
 
         providerLogin(googleProvider)
             .then(result => {
                 const user = result.user;
-                console.log(result);
+                console.log(user);
             })
             .catch(error => {
                 console.error(error);

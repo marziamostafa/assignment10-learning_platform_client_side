@@ -2,10 +2,9 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
-import './EmailPassLogin.css'
 
 
-const EmailPassLogin = () => {
+const Register = () => {
     return (
         <div className='form-input-container'>
             <h2 className='form-title mb-4'>Log In</h2>
@@ -29,7 +28,4 @@ const EmailPassLogin = () => {
     );
 };
 
-{/* <Form.Text className="text-danger">
-                We'll never share your email with anyone else.
-            </Form.Text> */}
-export default EmailPassLogin;
+export default Register;
