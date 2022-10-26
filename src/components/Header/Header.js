@@ -11,7 +11,7 @@ import 'tippy.js/dist/tippy.css'; // optional
 
 import './Header.css'
 import { AuthContext } from '../../contexts/Authprovider/Authprovider';
-import { HiUserCircle } from "react-icons/hi2";
+import { FaUserCircle } from "react-icons/fa";
 
 
 const Header = () => {
@@ -60,7 +60,13 @@ const Header = () => {
                                     </Tippy>
                                     // <Image style={{ height: '40px' }} roundedCircle src={user?.photoURL} ></Image>
                                     :
-                                    <h1 className='m-0 p-0'>  <HiUserCircle className='m-0 p-0'></HiUserCircle></h1>
+                                    <Tippy content={
+                                        <span className='fw-semibold'> {user?.displayName}</span>}>
+                                        {/* <h1 className=''>  <HiUserCircle className=''></HiUserCircle></h1> */}
+                                        <FaUserCircle className='fs-1 me-2'></FaUserCircle>
+                                    </Tippy>
+
+
                                 }
                             </Nav.Link>
 
@@ -72,13 +78,13 @@ const Header = () => {
                                                 {user?.displayName}
                                             </span> */}
 
-                                            <Button onClick={handleLogOut} variant="outline-secondary ms-1" className=''> <h5 className='m-0 p-0'>Log Out</h5></Button>
+                                            <Button onClick={handleLogOut} variant="outline-secondary ms-1" className=''>Log Out</Button>
 
                                         </>
 
                                         :
                                         <>
-                                            <Link to='/login'><Button variant="outline-secondary ms-1" className=''> <h5 className=''>Log In</h5></Button></Link>
+                                            <Link to='/login'><Button variant="outline-secondary ms-1" className='p-1 m-1'>Log In</Button></Link>
                                         </>
                                 }
 
