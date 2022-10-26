@@ -7,7 +7,7 @@ import './CourseOptions.css'
 import { Link } from 'react-router-dom';
 
 const CourseOptions = ({ category }) => {
-    const { name, id, image } = category;
+    const { name, id, image, quiz, videos } = category;
     console.log(name, id);
     return (
         <Container>
@@ -16,12 +16,17 @@ const CourseOptions = ({ category }) => {
                     <Card style={{ width: '20rem' }}>
                         <Card.Img className='photo' variant="top" src={image} />
                         <Card.Body>
-                            <Card.Title>{name}</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
+                            <Card.Title className='text-black fs-3'>{name}</Card.Title>
+                            <Card.Text className='text-black grid justify'>
+
+                                <Row>
+                                    <Col><span><span className='fs-5'>Videos: </span>{videos}</span> </Col>
+                                    <Col>
+                                        <span><span className='fs-5'>Quiz: </span>{quiz}</span>
+                                    </Col>
+                                </Row>
                             </Card.Text>
-                            <Link to={`/coursedetails/${id}`} ><Button variant="primary">Details</Button></Link>
+                            <Link to={`/coursedetails/${id}`} ><Button className='container' variant="primary">Details</Button></Link>
                         </Card.Body>
                     </Card>
                 </Col>

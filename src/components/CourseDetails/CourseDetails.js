@@ -34,10 +34,10 @@ const CourseDetails = () => {
 
 
                 <Card className="text-center w-100">
-                    <Card.Header ><h4><HiUserCircle></HiUserCircle> {instructor}</h4></Card.Header>
+                    <Card.Header className="text-black"><h4><HiUserCircle></HiUserCircle> {instructor}</h4></Card.Header>
                     <Card.Body >
-                        <Card.Title>Details:</Card.Title>
-                        <Card.Text className="mt-4">
+                        <Card.Title className="mt-4 text-black">Details about course:</Card.Title>
+                        <Card.Text className="mt-4 text-black">
                             {outcome}
                         </Card.Text>
 
