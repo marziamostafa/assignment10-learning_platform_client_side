@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
@@ -7,11 +7,13 @@ import './Register.css'
 
 
 const Register = () => {
+    const [error, setError] = useState('')
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
 
 
     const handleSubmit = event => {
+
 
         event.preventDefault();
         const form = event.target;
@@ -21,6 +23,32 @@ const Register = () => {
         const password = form.password.value;
 
         createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setError('');
+                form.reset();
+                handleUpdateUserProfile(name, photoURL)
+            })
+            .catch(error => {
+                console.error(error);
+                setError(error.message)
+            })
+
+        const handleUpdateUserProfile = (name, photoURL) => {
+            const profile = {
+                displayName: name,
+                photoURL: photoURL
+            }
+            updateUserProfile(profile)
+                .then(result => {
+                    const user = result.user;
+                    console.log(user);
+                })
+                .catch(error => {
+                    console.error(error);
+                })
+        }
     }
     return (
         <div className='reg-form-input-container'>
@@ -50,6 +78,9 @@ const Register = () => {
                 <Button className='btn-submit mb-2 container mt-2' variant="secondary" type="submit">
                     Sign Up
                 </Button>
+                <Form.Text className="text-danger">
+                    {error}
+                </Form.Text>
             </Form>
             <p className='ps-2'><small>Already have an accaount? <Link to='/emailpasslogin'>Log In</Link></small></p>
         </div>

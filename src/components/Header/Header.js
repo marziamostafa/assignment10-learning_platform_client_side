@@ -4,12 +4,14 @@ import { Link, NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import logo from '../../assets/logo.png'
+
+import logo from '../../assets/logo.png';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css'; // optional
 
 import './Header.css'
 import { AuthContext } from '../../contexts/Authprovider/Authprovider';
-import { FaUser } from 'react-icons/fa';
+import { HiUserCircle } from "react-icons/hi2";
 
 
 const Header = () => {
@@ -46,26 +48,31 @@ const Header = () => {
                         </Nav>
                         <Nav>
 
-                            <Nav.Link href="#Image" className=''>
+                            <Nav.Link href="#Image" className='m-0 p-0'>
                                 {user?.photoURL ?
-                                    <Image style={{ height: '40px' }} roundedCircle src={user?.photoURL} ></Image>
+
+
+                                    <Tippy content={
+                                        <span className='fw-semibold'> {user?.displayName}</span>}>
+
+                                        <Image style={{ height: '40px' }} roundedCircle src={user?.photoURL} ></Image>
+
+                                    </Tippy>
+                                    // <Image style={{ height: '40px' }} roundedCircle src={user?.photoURL} ></Image>
                                     :
-                                    <FaUser className='mt-3'></FaUser>
+                                    <h1 className='m-0 p-0'>  <HiUserCircle className='m-0 p-0'></HiUserCircle></h1>
                                 }
                             </Nav.Link>
 
-                            <Nav.Link href="#memes">
+                            <Nav.Link className='m-0 p-0' href="#memes">
                                 {
                                     user?.uid ?
                                         <>
-                                            <span className='p-0 m-0'>
+                                            {/* <span className='p-0 m-0'>
                                                 {user?.displayName}
-                                            </span>
-                                            {/* <h6 className='p-0 m-0'>
-                                              
-                                            </h6> */}
+                                            </span> */}
 
-                                            <Button onClick={handleLogOut} variant="outline-secondary ms-1" className=''> <h5 className=''>Log Out</h5></Button>
+                                            <Button onClick={handleLogOut} variant="outline-secondary ms-1" className=''> <h5 className='m-0 p-0'>Log Out</h5></Button>
 
                                         </>
 
