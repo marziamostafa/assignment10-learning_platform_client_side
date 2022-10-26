@@ -71,7 +71,7 @@ const Header = () => {
 
                                         :
                                         <>
-                                            <Link to='/emailpasslogin'><Button variant="outline-secondary ms-1" className=''> <h5 className=''>Log In</h5></Button></Link>
+                                            <Link to='/login'><Button variant="outline-secondary ms-1" className=''> <h5 className=''>Log In</h5></Button></Link>
                                         </>
                                 }
 

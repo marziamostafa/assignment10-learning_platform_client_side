@@ -24,7 +24,7 @@ const EmailPassLogin = () => {
                     Submit
                 </Button>
             </Form>
-            <p className='ps-2'><small>New to Ema-John? <Link to='/register'>Create new account</Link></small></p>
+            <p className='ps-2'><small>New to Learn Online? <Link to='/register'>Create new account</Link></small></p>
         </div>
     );
 };
