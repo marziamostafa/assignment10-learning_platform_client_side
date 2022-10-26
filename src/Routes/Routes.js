@@ -4,6 +4,7 @@ import Course from "../components/Course/Course";
 import CourseDetails from "../components/CourseDetails/CourseDetails";
 import CourseOptions from "../components/CourseOptions/CourseOptions";
 import Courses from "../components/Courses/Courses";
+import EmailPassLogin from "../components/EmailPassLogin/EmailPassLogin";
 import Error from "../components/Error/Error";
 import Faq from "../components/Faq/Faq";
 import Home from "../components/Home/Home";
@@ -38,6 +39,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/emailpasslogin',
+                element: <EmailPassLogin></EmailPassLogin>
             },
             {
                 path: '/coursedetails/:id',

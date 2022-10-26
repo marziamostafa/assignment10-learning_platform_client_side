@@ -1,9 +1,9 @@
-.link {
+.c-link {
     text-decoration: none;
 
 }
 
-.link:hover {
+.c-link:hover {
     background-color: bisque;
 
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
@@ -8,9 +8,11 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import logo from '../../assets/logo.png'
 
 import './Header.css'
+import { AuthContext } from '../../contexts/Authprovider/Authprovider';
 
 
 const Header = () => {
+    const { user } = useContext(AuthContext)
     return (
         <div >
             <Navbar className='mb-2' collapseOnSelect expand="lg" bg="light" variant="light">
@@ -35,7 +37,7 @@ const Header = () => {
                         <Nav>
                             <Button variant="outline-primary" className='btn-sm p-0'>  <Nav.Link href="/login"><h5 className='p-0 m-0'>Log In</h5></Nav.Link></Button>
                             <Nav.Link href="#memes">
-                                Dank memes
+                                {user}
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
