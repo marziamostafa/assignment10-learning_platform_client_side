@@ -9,8 +9,10 @@ import Error from "../components/Error/Error";
 import Faq from "../components/Faq/Faq";
 import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
+import Premium from "../components/Premium/Premium";
 import Register from "../components/Register/Register";
 import Main from "../layout/Main";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -48,6 +50,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/premium',
+                element: <PrivateRoute><Premium></Premium></PrivateRoute>
             },
             {
                 path: '/coursedetails/:id',

@@ -51,7 +51,7 @@ const Blog = () => {
                         <Card.Body>
 
                             <Card.Text className='qst mb-3'>
-                                he react private route component renders child components ( children ) if the user is logged in. If not logged in the user is redirected to the /login page with the return url passed in the location state property.The private route component is similar to the public route, the only change is that redirect URL and authenticate condition
+                                The react private route component renders child components ( children ) if the user is logged in. If not logged in the user is redirected to the /login page with the return url passed in the location state property.The private route component is similar to the public route, the only change is that redirect URL and authenticate condition
                             </Card.Text>
 
                         </Card.Body>

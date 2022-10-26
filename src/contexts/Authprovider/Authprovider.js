@@ -32,6 +32,7 @@ const Authprovider = ({ children }) => {
 
     // login with git
     const gitLogIn = (provider) => {
+        setLoading(true);
         return signInWithPopup(auth, provider);
     }
 

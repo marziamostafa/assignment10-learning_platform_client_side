@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Image } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
@@ -16,6 +16,24 @@ import { FaUserCircle } from "react-icons/fa";
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
+    const [theme, setTheme] = useState(
+        localStorage.getItem('theme') || 'light'
+    );
+    const toggleTheme = () => {
+
+        if (theme === 'light') {
+            setTheme('dark');
+        }
+        else {
+            setTheme('light')
+        }
+
+    }
+
+    useEffect(() => {
+        localStorage.setItem('theme', theme);
+        document.body.className = theme;
+    }, [theme])
 
     const handleLogOut = () => {
         logOut()
@@ -43,7 +61,7 @@ const Header = () => {
                             <Nav.Link href="/courses"><h4>Courses</h4></Nav.Link>
                             <Nav.Link href="/blog"><h4>Blog</h4></Nav.Link>
                             <Nav.Link href="/faq"><h4>FAQ</h4></Nav.Link>
-                            <Nav.Link href="#toggle"><h4>Toggle</h4></Nav.Link>
+                            <Nav.Link className={`Header ${theme}`} href="#toggle"><Button onClick={toggleTheme}>{theme}</Button></Nav.Link>
 
                         </Nav>
                         <Nav>

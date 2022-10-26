@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { Button } from 'react-bootstrap';
@@ -28,7 +28,7 @@ const CourseDetails = () => {
                         <ListGroup.Item>Notes: {notes}</ListGroup.Item>
                     </ListGroup>
                     <Card.Body>
-                        <Button variant="primary">Go somewhere</Button>
+                        <Link to='/premium'><Button variant="primary">Premium</Button></Link>
                     </Card.Body>
                 </Card>
 
