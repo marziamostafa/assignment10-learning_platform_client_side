@@ -24,7 +24,7 @@ const CourseDetails = () => {
                 <Card className="text-center w-100" style={{ width: '35rem' }}>
                     <Card.Img className="image" variant="top" src={image} />
                     <Card.Body>
-                        <Card.Title>{name}</Card.Title>
+                        <Card.Title className='text-black'>{name}</Card.Title>
                     </Card.Body>
                     <ListGroup className="list-group-flush">
                         <ListGroup.Item>Total Videos: {videos}</ListGroup.Item>

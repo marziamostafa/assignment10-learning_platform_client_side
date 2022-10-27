@@ -3,7 +3,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## link of my website
+## link of my website:
+https://b610-learning-platform.firebaseapp.com/
+
+## link off my server site: 
+https://b610-lerning-platform-server-side-marziamostafa-marziamostafa.vercel.app/courses-categories/
 
 ## features of my website:
 1. It is responsive
@@ -13,11 +17,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 5. all the data were collected by the server made by me
 
 ## list of technologies :
-1.bootstrap
-2.firebase
-3.react-route-dom
-4.react icon
-5.css
+1. bootstrap
+2. firebase
+3. react-route-dom
+4 .react icon
+5. css
+6. vercel
+7. express
 
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import SideBar from '../SideBar/SideBar';
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './CourseOptions.css'
@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const CourseOptions = ({ category }) => {
     const { name, id, image, quiz, videos } = category;
-    console.log(name, id);
+
     return (
         <Container>
             <Row>

@@ -1,4 +1,4 @@
-import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+
 import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -6,9 +6,6 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/Authprovider/Authprovider';
 import './EmailPassLogin.css';
-
-
-
 
 
 const EmailPassLogin = () => {

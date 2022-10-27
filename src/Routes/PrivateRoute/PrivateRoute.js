@@ -11,7 +11,7 @@ const PrivateRoute = ({ children }) => {
     console.log(loading)
 
     if (loading) {
-        <Spinner animation="border" variant="primary" />
+        return children
     }
 
     if (user && user.uid) {

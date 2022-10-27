@@ -18,6 +18,18 @@ const Authprovider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+            console.log('current user inside state', currentUser);
+            setUser(currentUser);
+            setLoading(false);
+        });
+
+        return () => {
+            unSubscribe()
+        };
+    }, [])
+
 
     // login with google------
     const googleLogin = () => {
@@ -58,17 +70,7 @@ const Authprovider = ({ children }) => {
         return updateProfile(auth.currentUser, profile)
     }
 
-    useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-            console.log('current user inside state', currentUser);
-            setUser(currentUser);
-            setLoading(false);
-        });
 
-        return () => {
-            unSubscribe()
-        };
-    }, [])
 
     const authInfo = { user, loading, googleLogin, setLoading, logOut, createUser, signIn, updateUserProfile, gitLogIn };
 

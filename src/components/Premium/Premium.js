@@ -26,7 +26,7 @@ const Premium = () => {
             <Card.Img className="pre-image fluid w-100" variant="top" src={image} />
 
             <Card.Body>
-                <Card.Title>{name}</Card.Title>
+                <Card.Title className='text-dark'>{name}</Card.Title>
             </Card.Body>
 
             <ListGroup className="list-group-flush">

@@ -54,7 +54,6 @@ export const routes = createBrowserRouter([
             {
                 path: '/premium/:id',
                 loader: async ({ params }) => {
-                    console.log(params.id)
                     return fetch(`https://b610-lerning-platform-server-side-marziamostafa-marziamostafa.vercel.app/courses-categories/${params.id}`)
                 },
                 element: <PrivateRoute><Premium></Premium></PrivateRoute>
@@ -63,7 +62,6 @@ export const routes = createBrowserRouter([
                 path: '/coursedetails/:id',
 
                 loader: async ({ params }) => {
-                    // console.log(params.id)
                     return fetch(`https://b610-lerning-platform-server-side-marziamostafa-marziamostafa.vercel.app/courses-categories/${params.id}`)
                 },
                 element: <CourseDetails></CourseDetails>,

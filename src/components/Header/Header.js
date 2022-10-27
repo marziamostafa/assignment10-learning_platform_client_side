@@ -70,15 +70,6 @@ const Header = () => {
                                     <FaSun></FaSun>}
                             </Button>
 
-
-
-
-
-                            {/* <Nav.Link className={`Header ${theme} Head`} onClick={toggleTheme}><Button variant={theme} className="m-0">{theme === 'light' ?
-                                <FaMoon></FaMoon>
-                                :
-                                <FaSun></FaSun>}</Button></Nav.Link> */}
-
                         </Nav>
                         <Nav>
 
@@ -92,14 +83,9 @@ const Header = () => {
                                         <Image style={{ height: '40px' }} roundedCircle src={user?.photoURL} ></Image>
 
                                     </Tippy>
-                                    // <Image style={{ height: '40px' }} roundedCircle src={user?.photoURL} ></Image>
-                                    :
-                                    <Tippy content={
-                                        <span className='fw-semibold'> {user?.displayName}</span>}>
-                                        {/* <h1 className=''>  <HiUserCircle className=''></HiUserCircle></h1> */}
-                                        <FaUserCircle className='fs-1 me-2'></FaUserCircle>
-                                    </Tippy>
 
+                                    :
+                                    <FaUserCircle className='fs-1 me-2'></FaUserCircle>
 
                                 }
                             </Nav.Link>

@@ -6,18 +6,15 @@ import { AiOutlineMail } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 import './Login.css'
 import { AuthContext } from '../../contexts/Authprovider/Authprovider';
-import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
 
     const { googleLogin, gitLogIn } = useContext(AuthContext);
-    // const googleProvider = new GoogleAuthProvider();
-    const provider = new GoogleAuthProvider();
-    const gitProvider = new GithubAuthProvider();
+
 
     const handleGoogleSignIn = () => {
 
-        googleLogin(provider)
+        googleLogin()
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -29,7 +26,7 @@ const Login = () => {
     }
 
     const handleGitSignIn = () => {
-        gitLogIn(gitProvider)
+        gitLogIn()
             .then(result => {
                 const user = result.user;
                 console.log(user);
