@@ -11,7 +11,7 @@ import 'tippy.js/dist/tippy.css'; // optional
 
 import './Header.css'
 import { AuthContext } from '../../contexts/Authprovider/Authprovider';
-import { FaUserCircle } from "react-icons/fa";
+import { FaMoon, FaSun, FaUserCircle } from "react-icons/fa";
 
 
 const Header = () => {
@@ -61,7 +61,23 @@ const Header = () => {
                             <Nav.Link href="/courses"><h4>Courses</h4></Nav.Link>
                             <Nav.Link href="/blog"><h4>Blog</h4></Nav.Link>
                             <Nav.Link href="/faq"><h4>FAQ</h4></Nav.Link>
-                            <Nav.Link className={`Header ${theme}`} href="#toggle"><Button onClick={toggleTheme}>{theme}</Button></Nav.Link>
+
+
+                            <Button className={`Header ${theme}`} onClick={toggleTheme} variant={theme}>{theme}{` `}
+                                {theme === 'light' ?
+                                    <FaMoon></FaMoon>
+                                    :
+                                    <FaSun></FaSun>}
+                            </Button>
+
+
+
+
+
+                            {/* <Nav.Link className={`Header ${theme} Head`} onClick={toggleTheme}><Button variant={theme} className="m-0">{theme === 'light' ?
+                                <FaMoon></FaMoon>
+                                :
+                                <FaSun></FaSun>}</Button></Nav.Link> */}
 
                         </Nav>
                         <Nav>

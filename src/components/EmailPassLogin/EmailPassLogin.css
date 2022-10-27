@@ -4,8 +4,9 @@
     border: 1px solid #95A0A7;
     border-radius: 8px;
     margin-top: 4rem;
-
-    height: 27rem;
+    /* margin-left: 20%;
+    margin-right: 20%; */
+    height: 30rem;
     width: 23rem;
 }
 
@@ -31,4 +32,11 @@
     color: #2A414F;
     margin-bottom: 10px;
 
+}
+
+.loader {
+
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    margin-top: 2rem;
 }

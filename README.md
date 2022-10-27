@@ -1,6 +1,25 @@
-# Getting Started with Create React App
+# b610-learning-platform-client-side-marziamostafa
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## link of my website
+
+## features of my website:
+1. It is responsive
+2. have the option to change into dark mode or light mode
+3. it have the options to log in with email and password , github and google
+4. it shows the user name and image on header
+5. all the data were collected by the server made by me
+
+## list of technologies :
+1.bootstrap
+2.firebase
+3.react-route-dom
+4.react icon
+5.css
+
+
 
 ## Available Scripts
 

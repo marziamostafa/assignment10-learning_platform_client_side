@@ -82,7 +82,7 @@ const Register = () => {
                     {error}
                 </Form.Text>
             </Form>
-            <p className='ps-2'><small>Already have an accaount? <Link to='/emailpasslogin'>Log In</Link></small></p>
+            <p className='ps-2 text-dark'><small>Already have an accaount? <Link to='/emailpasslogin'>Log In</Link></small></p>
         </div>
     );
 };

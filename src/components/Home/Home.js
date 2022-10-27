@@ -19,7 +19,7 @@ const Home = () => {
                 />
                 <Carousel.Caption className=' mb-5'>
                     <p className='text-secondary h3'>People get skilled by learning and aquiring knowledge. Let's take the initiative of the journey to be a skilled one.</p>
-                    <Link to='/login'> <Button>Get Started</Button></Link>
+                    <Link to='/courses'> <Button>Get Started</Button></Link>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -31,7 +31,7 @@ const Home = () => {
 
                 <Carousel.Caption className=' mb-5'>
                     <p className='text-black h3'>People get skilled by learning and aquiring knowledge. Let's take the initiative of the journey to be a skilled one.</p>
-                    <Link to='/login'> <Button>Get Started</Button></Link>
+                    <Link to='/courses'> <Button>Get Started</Button></Link>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -45,7 +45,7 @@ const Home = () => {
                     <p className='text-black h3'>
                         People get skilled by learning and aquiring knowledge. Let's take the initiative of the journey to be a skilled one.
                     </p>
-                    <Link to='/login'> <Button>Get Started</Button></Link>
+                    <Link to='/courses'> <Button>Get Started</Button></Link>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>

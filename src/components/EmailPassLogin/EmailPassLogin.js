@@ -1,6 +1,8 @@
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/Authprovider/Authprovider';
 import './EmailPassLogin.css';
@@ -14,7 +16,7 @@ const EmailPassLogin = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
-    const { signIn, setLoading } = useContext(AuthContext);
+    const { signIn, setLoading, gitLogIn, googleLogin } = useContext(AuthContext);
 
     const [error, setError] = useState('')
 
@@ -35,6 +37,39 @@ const EmailPassLogin = () => {
             .catch(error => {
                 console.error(error);
                 setError(error.message)
+                setLoading(false);
+            })
+            .finally(() => {
+                setLoading(false);
+            })
+    }
+
+    const handleGoogleSignIn = () => {
+
+        googleLogin()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.error(error);
+            })
+            .finally(() => {
+                setLoading(false);
+            })
+    }
+
+    const handleGitSignIn = () => {
+
+        gitLogIn()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.error(error);
             })
             .finally(() => {
                 setLoading(false);
@@ -63,12 +98,17 @@ const EmailPassLogin = () => {
                     {error}
                 </Form.Text>
             </Form>
-            <p className='ps-2'><small>New to Learn Online? <Link to='/register'>Create new account</Link></small></p>
+            <p className='ps-2 text-dark'><small>New to Learn Online? <Link to='/register'>Create new account</Link></small></p>
+
+            <div className='loader container'>
+                <Button onClick={handleGoogleSignIn} className='mb-2' variant="outline-dark"><FaGoogle></FaGoogle> Log in with Google</Button>
+                <Button onClick={handleGitSignIn} variant="outline-dark"><FaGithub></FaGithub> Log in with GitHub</Button>
+            </div>
         </div>
+
+
     );
 };
 
-{/* <Form.Text className="text-danger">
-                We'll never share your email with anyone else.
-            </Form.Text> */}
+
 export default EmailPassLogin;

@@ -6,14 +6,18 @@ import { Button } from 'react-bootstrap';
 import './CourseDetails.css'
 import { HiUserCircle, HiFaceSmile } from "react-icons/hi2";
 
+import PdfDownload from '../PdfDownload/PdfDownload';
+
 
 const CourseDetails = () => {
     const detail = useLoaderData()
-    const { name, image, instructor, quiz, videos, notes, outcome } = detail
+    const { name, image, instructor, quiz, videos, notes, outcome, id } = detail
 
     return (
         <div>
-            <h1 className="text-center p-3">{name}</h1>
+            <h1 className="text-center p-3">{name}  <PdfDownload rootElementID={"Download"} DownloadFileName="course-file"></PdfDownload></h1>
+
+
             <div className='details'>
 
 
@@ -28,8 +32,11 @@ const CourseDetails = () => {
                         <ListGroup.Item>Notes: {notes}</ListGroup.Item>
                     </ListGroup>
                     <Card.Body>
-                        <Link to='/premium'><Button variant="primary">Premium</Button></Link>
+                        <Link to={`/premium/${id}`} key={id}>
+                            {<Button key={id} variant="primary">Get Premium access</Button>}
+                        </Link>
                     </Card.Body>
+
                 </Card>
 
 

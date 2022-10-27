@@ -52,19 +52,23 @@ export const routes = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: '/premium',
+                path: '/premium/:id',
+                loader: async ({ params }) => {
+                    console.log(params.id)
+                    return fetch(`https://b610-lerning-platform-server-side-marziamostafa-marziamostafa.vercel.app/courses-categories/${params.id}`)
+                },
                 element: <PrivateRoute><Premium></Premium></PrivateRoute>
             },
             {
                 path: '/coursedetails/:id',
 
                 loader: async ({ params }) => {
-                    console.log(params.id)
+                    // console.log(params.id)
                     return fetch(`https://b610-lerning-platform-server-side-marziamostafa-marziamostafa.vercel.app/courses-categories/${params.id}`)
                 },
                 element: <CourseDetails></CourseDetails>,
             },
         ]
     },
-    { path: '*', element: <div><Error></Error> <Link className='back' to='/home'>Go to home</Link></div> },
+    { path: '*', element: <Error></Error> },
 ])

@@ -1,19 +1,29 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile, } from 'firebase/auth'
+import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile, } from 'firebase/auth'
 import app from '../../firebase/firebase.config'
+
+
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
 
+const provider = new GoogleAuthProvider();
+const gitProvider = new GithubAuthProvider();
+
+
 const Authprovider = ({ children }) => {
+
+
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
 
     // login with google------
-    const googleLogin = (provider) => {
+    const googleLogin = () => {
+
         setLoading(true);
+        console.log(loading);
         return signInWithPopup(auth, provider)
     }
 
@@ -31,9 +41,9 @@ const Authprovider = ({ children }) => {
     }
 
     // login with git
-    const gitLogIn = (provider) => {
+    const gitLogIn = () => {
         setLoading(true);
-        return signInWithPopup(auth, provider);
+        return signInWithPopup(auth, gitProvider);
     }
 
 
@@ -44,14 +54,15 @@ const Authprovider = ({ children }) => {
     }
 
     const updateUserProfile = (profile) => {
+
         return updateProfile(auth.currentUser, profile)
     }
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-            console.log('current user inside state ch', currentUser);
+            console.log('current user inside state', currentUser);
             setUser(currentUser);
-            setLoading(false)
+            setLoading(false);
         });
 
         return () => {

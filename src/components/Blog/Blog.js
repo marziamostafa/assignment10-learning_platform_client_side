@@ -11,7 +11,7 @@ const Blog = () => {
                 'Secondary'
             ].map((variant) => (
                 <div>
-                    <Card className='qst mb-5' bg={variant.toLowerCase()}
+                    <Card className='qst mb-5 mt-5 pt-3' bg={variant.toLowerCase()}
                         key={variant}
                         text={variant.toLowerCase() === 'light' ? 'dark' : 'white'}>
 

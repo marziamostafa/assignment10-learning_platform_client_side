@@ -1,0 +1,11 @@
+.pre-image {
+
+    height: 10rem;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 4rem;
+    align-items: center;
+}

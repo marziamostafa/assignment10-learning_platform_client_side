@@ -5,26 +5,21 @@ import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 
 const PrivateRoute = ({ children }) => {
+    const location = useLocation();
 
     const { user, loading } = useContext(AuthContext);
-    const location = useLocation();
-    if (loading) {
-        <Button variant="primary" disabled>
-            <Spinner
-                as="span"
-                animation="grow"
-                size="sm"
-                role="status"
-                aria-hidden="true"
-            />
-            Loading...
-        </Button>
-    }
-    if (!user) {
-        return <Navigate to='/emailpasslogin' state={{ from: location }} replace></Navigate>
+    console.log(loading)
 
+    if (loading) {
+        <Spinner animation="border" variant="primary" />
+    }
+
+    if (user && user.uid) {
+        return children;
     };
-    return children;
+    return <Navigate to='/emailpasslogin' state={{ from: location }} replace></Navigate>;
+
+
 
 };
 
